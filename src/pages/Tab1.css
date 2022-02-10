@@ -1,0 +1,33 @@
+.swiperraiz{
+	position: relative;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+}
+.BackdropSlides {
+  width: 105%;
+  position: absolute;
+  z-index: 1;
+  
+
+}
+
+.SlidesContainer{
+	padding-top: 18%;
+ 
+}
+.movie-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+}
+.slide{
+  position: absolute;
+  z-index: 2;
+  padding-top: 50%;
+  
+    flood-color:red;
+  
+  }

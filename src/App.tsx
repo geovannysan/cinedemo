@@ -34,6 +34,33 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+
+/* Theme variables */
+
+
+import SwiperCore, {
+  Controller,
+  EffectCoverflow,
+  EffectFade,
+  Lazy,
+  Navigation,
+  Pagination,
+  Parallax,
+  Scrollbar,
+  Thumbs,
+} from "swiper";
+SwiperCore.use([
+  Controller,
+  Pagination,
+  Scrollbar,
+  Navigation,
+  Thumbs,
+  Lazy,
+  EffectFade,
+  EffectCoverflow,
+  Parallax
+]);
+
 setupIonicReact();
 
 const App: React.FC = () => (
