@@ -98,7 +98,7 @@ const Tab1: React.FC = () => {
                       />
                     );
                   }
-
+ 
                   if (item.poster) {
                     return (
                       <SwiperSlide key={item.key + "-movies"} >
@@ -110,7 +110,7 @@ const Tab1: React.FC = () => {
                             style={styles.posterImage}
                           />
                           <div className="slide">
-                            <h2>{item.title}</h2>
+                            {/*/<h2>{item.title}</h2>/*/}
                            
                            
                           </div>
