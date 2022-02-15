@@ -1,5 +1,6 @@
 import { IonContent,IonRow,IonCol,  IonPage,  isPlatform,IonChip, IonLabel, } from '@ionic/react';
 import React, { useEffect, useState } from "react";
+import { Redirect, Route,useHistory } from 'react-router-dom';
 import { getMovies } from "../utils/api";
 import ExploreContainer from '../components/ExploreContainer';
 import SliderView from '../components/SliderView';
@@ -20,6 +21,11 @@ const BACKDROP_HEIGHT = height * 0.45;
 const Tab1: React.FC = () => {
   const [movies, setMovies] = useState<any[]>([]);
   const [slider1, setSlider1] = useState<any>(null);
+   let history = useHistory();
+
+  function handleClick() {
+    history.push("/butacas");
+  }
 //console.log({"uno":[movies]});
 //console.log(slider1);
   useEffect(() => {
@@ -57,8 +63,8 @@ const Tab1: React.FC = () => {
   };
   return ( 
     <IonPage>    
-      <IonContent fullscreen  color="dark"  >
-     <div className="cinebody" color="dark" style={{height:"35%"}}>
+     
+     <div className="cinebody"  >
            {movies.length !==0 &&(
              <div className="swiperraiz" >
              <ExploreContainer  movies={movies} slider1={slider1} name={"Estrenos"}  />
@@ -68,7 +74,7 @@ const Tab1: React.FC = () => {
                      className="AnimatedSlides"
                      initialSlide={movies.length/2}
                      slidesPerView={1.25}
-                     spaceBetween={40}
+                     spaceBetween={30}
                      centeredSlides={true}
                      watchSlidesProgress={true}
                      onSwiper={(swiper) => {
@@ -96,7 +102,7 @@ const Tab1: React.FC = () => {
                      if (item.poster) {
                          return (
                            <SwiperSlide key={item.key + "-movies"} >
-                             <div className="movie-slide" style={styles.movieSlides}>
+                             <div className="movie-slide" style={styles.movieSlides} onClick={handleClick}>
                                <img
                                className="swiperalt"
                                  alt="alt-img"
@@ -123,10 +129,9 @@ const Tab1: React.FC = () => {
               </div> )}
            
               </div>
-         
-      </IonContent>
+     
     </IonPage>
   );
 };
-
+ 
 export default Tab1;

@@ -1,8 +1,16 @@
 .slide-image{
   filter: blur(2px);
+  display: flex;
+   padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
 
 }
-
+.slider1{
+   padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+}
 .grad{
   display: flex;
   height: 70px;

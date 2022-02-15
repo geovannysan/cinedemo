@@ -36,9 +36,9 @@ const SliderView: React.FC<MoviesPropd> =({movies,name})=>{
       	if (item.poster) {
       	return(
       		<SwiperSlide key={item.key + "-movies"}>
-      		<div>
+      		<div style={{ borderRadius: "15px",paddingBottom:"15px"}}>
           <img
-               style={{ borderRadius: "10px",paddingBottom:"15px"}}
+               
                 className="swiperalt"
                             alt="alt-img"
                             src={item.poster}

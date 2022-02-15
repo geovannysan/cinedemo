@@ -35,15 +35,15 @@ const width = window.innerWidth;
 return (
   <div style={{background:"dark"}}> 
   <div className="grad"> 
-  <h5>Whatching for Estrenos</h5>
+  <h5>Las Nuevas Peliculas </h5>
   <IonChip color="warning">
           
-          <IonLabel color="warning">Estrenos</IonLabel>
+          <IonLabel color="warning">{name}</IonLabel>
           
         </IonChip>
   </div>
        
-    <div style={{ height:"100%",  width, position: "absolute" }}>
+    <div className="slider1" style={{ height:"100%",   position: "absolute" }}>
     
     <Swiper 
     color="dark"
