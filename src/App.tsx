@@ -1,15 +1,17 @@
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router';
+import { IonReactRouter } from '@ionic/react-router';
 import {
   IonApp,
   IonIcon,
   IonLabel,
   IonRouterOutlet,
   IonTabBar,
+  createAnimation,
   IonTabButton,
   IonTabs,
   setupIonicReact
 } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import {StatusBar} from '@awesome-cordova-plugins/status-bar/';
 import { ellipse, square, triangle } from 'ionicons/icons';
 import Burtaca from './pages/Butaca';
 import Tab1 from './pages/Tab1';
@@ -62,14 +64,32 @@ SwiperCore.use([
   Parallax
 ]);
 
+const animationBuilder = (baseEl: any, opts?: any) => {
+    const enteringAnimation = createAnimation()
+      .addElement(opts.enteringEl)
+      .fromTo('opacity', 0, 1)
+      .duration(250);
+
+    const leavingAnimation = createAnimation()
+      .addElement(opts.leavingEl)
+      .fromTo('opacity', 1, 0)
+      .duration(250);
+
+    const animation = createAnimation()
+      .addAnimation(enteringAnimation)
+      .addAnimation(leavingAnimation);
+
+    return animation;
+  };
 setupIonicReact();
 
 const App: React.FC = () => (
+
   <IonApp>
     <IonReactRouter>
 
       <IonTabs>
-        <IonRouterOutlet>
+        <IonRouterOutlet  animation={animationBuilder}>
           <Route exact path="/tab1">
             <Tab1 />
           </Route>
@@ -98,9 +118,11 @@ const App: React.FC = () => (
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
+      <IonRouterOutlet animation={animationBuilder}>
       <Route  exact path="/butacas">
     <Burtaca/>
     </Route>
+    </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
 );

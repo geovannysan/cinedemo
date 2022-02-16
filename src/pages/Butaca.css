@@ -8,6 +8,27 @@ display: flex;
 align-items: stretch;
 flex-direction:  column;
 }
+.grad{
+  display: flex;
+ 
+flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;   
+}
+.grad2{
+
+display: flex;
+flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;  
+  align-content: center;
+ 
+}
+.img{
+ filter: invert(58%) sepia(23%) saturate(3505%) hue-rotate(350deg) brightness(98%) contrast(93%);
+}
 .container {
   
 
@@ -25,7 +46,7 @@ flex-direction:  column;
   
 }
 .round{
-  background-color: #444451;
+  background-color: white;
   height: 12px;
   width: 15px;
   margin: 3px;

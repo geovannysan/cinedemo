@@ -1,41 +1,33 @@
 import { IonContent,IonToolbar,IonTitle,
-  IonButton, IonHeader,IonChip,IonLabel, IonPage,IonIcon} from '@ionic/react';
+  IonButton, IonHeader,IonChip,IonLabel,isPlatform, IonPage,IonIcon} from '@ionic/react';
 import {useState,useEffect} from 'react';
-import { triangle ,arrowBack,arrowDownCircle,arrowDown,arrowForward} from 'ionicons/icons';
+
 import {Asientos} from '../libs/Asientos';
-
-
 import './Butaca.css';
-
 const Butaca: React.FC = () => {
   const [asieto,setAsientos] = useState<any[]>([]);
   useEffect(()=>{
     setAsientos(Asientos(12,10));
    
-
-   
+  
 
   },[])
   return (
     <IonPage>
       <IonContent fullscreen>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 2</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <div  className="raiz" style={{height:"90%"}} >   
-      <div style={{height:"20%",width:"100%"}}  >
+      
+      <div  className="raiz" style={{height:"100% !important "}} >   
+      <div style={{height:"20%",width:"100%",justifyContent:"center"}}  >
         <div className="grad"> 
-  <h5>Seleccione los <span><IonIcon icon={arrowBack}/> Asientos <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-left" viewBox="0 0 16 16">
-  <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
-</svg></div> </span> </h5>
-  <IonChip color="warning">
-          
-          <IonLabel color="warning">Pelicula</IonLabel> 
-          
-        </IonChip>
+      <h3>Seleccione los Asientos</h3>
+  
   </div>
+   <div className="grad2 "> 
+      <h6 style={{margin: 0 }}>Suspiro</h6>
+<p style={{margin:0,paddingTop:5 }}>Asentos Disponibles</p>
+  
+  </div>
+
       </div>
       <div className="container" style={{height:"40%",width:"100%"}}  >
         <div className="pantalla"></div>
@@ -48,18 +40,26 @@ const Butaca: React.FC = () => {
         }               
       </div>
       <div className="timedate" style={{height:"35%",width:"100%"}} >
-        <div style={{height:"25%",width:"100%"}}  >
-        <div className="grad"> 
-  <h5>Seleccione  </h5>
-  <IonChip color="warning">
-          
-          <IonLabel color="warning">Pelicula</IonLabel>
-          <IonButton>Siguiente</IonButton>
-        </IonChip>
+        
+        <div className="grad">        
+        <img className="img" alt="no" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIibXVIU4DURCA4Q9EBaLBoJrgKiEcoBfoATCcgBOgOQMXwGFx1VhIkMgmBQEGSJAkQDFvkidoRZn57Wa/TXb3zfD/JnhMcP7sCO9YVuCHeGv4RzY+xkvDPzHNxPexaPgXjjPxEeYN/8ZJJr6Hh4b/4DQT38V9w5c4y8SHuOvw80x8BzcdfpGJDzDr8EtsZT7gusOvsL0Jsu6mkuPfV/6KKP7I0RC3in7TqPSgRaWjIioddlHpuI7GeFa0cKIDvCpamVHp0o8meFp18RepAkYE7nsHmgAAAABJRU5ErkJggg=="/>
+        <h3>20 Enero 2022  </h3>
+    <img className="img" alt="no" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIic3WIW4CMBQA0DcUAgHB4EhwW8LcHG4exQW4wO6A3Ql2AuQuwCyTLEHiWKYWECgSssBMkzUkYNZP+LbNf8lv+385HZ/onVn/dxywwUMUsEnICt0I4BHbhHzjNgLpY5eQL3QikAF+ErJEOwIZYp+QBVoRyFMCDpijGYGMMmSGegTynCFT1EoDN3jJkAmqpZEKxhnyem7j1cVxid4ULlF+yO8KH3J+TT/QKJk89KGFtorQZhfaro8Hzl3J5PyNzDXuSyfnAkN/qcC35RecbkUnJ/dOewAAAABJRU5ErkJggg=="/>    
   </div>
+   <div className="grad">        
+   <img className="img" alt="no" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIibXVIU4DURCA4Q9EBaLBoJrgKiEcoBfoATCcgBOgOQMXwGFx1VhIkMgmBQEGSJAkQDFvkidoRZn57Wa/TXb3zfD/JnhMcP7sCO9YVuCHeGv4RzY+xkvDPzHNxPexaPgXjjPxEeYN/8ZJJr6Hh4b/4DQT38V9w5c4y8SHuOvw80x8BzcdfpGJDzDr8EtsZT7gusOvsL0Jsu6mkuPfV/6KKP7I0RC3in7TqPSgRaWjIioddlHpuI7GeFa0cKIDvCpamVHp0o8meFp18RepAkYE7nsHmgAAAABJRU5ErkJggg=="/> 
+    <h3>12:00  </h3>
+    <img className="img" alt="no" src="https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-right-arrows-those-icons-fill-those-icons-1.png"/>      
+  </div>
+      
       </div>
+       <div className="grad" style={{paddingBottom:15}}>    
+      <IonButton style={{width:"70%",height:50}}>Siguiente</IonButton>    
+   
+      
       </div>
      </div>
+
         
         
       </IonContent>

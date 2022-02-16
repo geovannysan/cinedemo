@@ -34,7 +34,7 @@ const width = window.innerWidth;
 
 return (
   <div style={{background:"dark"}}> 
-  <div className="grad"> 
+  <div className=""> 
   <h5>Las Nuevas Peliculas </h5>
   <IonChip color="warning">
           
