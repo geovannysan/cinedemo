@@ -1,11 +1,11 @@
-import { IonContent,IonToolbar,IonTitle,
-  IonButton, IonHeader,IonChip,IonLabel,isPlatform, IonPage,IonIcon} from '@ionic/react';
+import { IonContent, IonPage,IonIcon,IonButton} from '@ionic/react';
 import {useState,useEffect} from 'react';
-
+import { useHistory } from "react-router-dom";
 import {Asientos} from '../libs/Asientos';
 import './Butaca.css';
 const Butaca: React.FC = () => {
   const [asieto,setAsientos] = useState<any[]>([]);
+  let route = useHistory();
   useEffect(()=>{
     setAsientos(Asientos(12,10));
    
@@ -16,8 +16,8 @@ const Butaca: React.FC = () => {
     <IonPage>
       <IonContent fullscreen>
       
-      <div  className="raiz" style={{height:"100% !important "}} >   
-      <div style={{height:"20%",width:"100%",justifyContent:"center"}}  >
+      <div  className="raiz" >   
+      <div style={{height:"30%",width:"100%",justifyContent:"center"}}  >
         <div className="grad"> 
       <h3>Seleccione los Asientos</h3>
   
@@ -39,7 +39,7 @@ const Butaca: React.FC = () => {
           </div>))
         }               
       </div>
-      <div className="timedate" style={{height:"35%",width:"100%"}} >
+      <div className="timedate" style={{height:"40%",width:"100%"}} >
         
         <div className="grad">        
         <img className="img" alt="no" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIibXVIU4DURCA4Q9EBaLBoJrgKiEcoBfoATCcgBOgOQMXwGFx1VhIkMgmBQEGSJAkQDFvkidoRZn57Wa/TXb3zfD/JnhMcP7sCO9YVuCHeGv4RzY+xkvDPzHNxPexaPgXjjPxEeYN/8ZJJr6Hh4b/4DQT38V9w5c4y8SHuOvw80x8BzcdfpGJDzDr8EtsZT7gusOvsL0Jsu6mkuPfV/6KKP7I0RC3in7TqPSgRaWjIioddlHpuI7GeFa0cKIDvCpamVHp0o8meFp18RepAkYE7nsHmgAAAABJRU5ErkJggg=="/>
@@ -51,13 +51,13 @@ const Butaca: React.FC = () => {
     <h3>12:00  </h3>
     <img className="img" alt="no" src="https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-right-arrows-those-icons-fill-those-icons-1.png"/>      
   </div>
-      
-      </div>
-       <div className="grad" style={{paddingBottom:15}}>    
+      <div className="grad" style={{paddingBottom:15}}>    
       <IonButton style={{width:"70%",height:50}}>Siguiente</IonButton>    
    
       
       </div>
+      </div>
+       
      </div>
 
         

@@ -1,6 +1,6 @@
-import { IonContent,IonRow,IonCol,  IonPage,  isPlatform,IonChip, IonLabel, } from '@ionic/react';
+import { IonButton,  IonPage,  isPlatform } from '@ionic/react';
 import React, { useEffect, useState } from "react";
-import { Redirect, Route,useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getMovies } from "../utils/api";
 import ExploreContainer from '../components/ExploreContainer';
 import SliderView from '../components/SliderView';
@@ -12,11 +12,11 @@ import "swiper/css/pagination";
 import './Tab1.css';
 
 const width = window.innerWidth;
-const height = window.innerHeight;
+
 const SPACING = 10;
 const ITEM_SIZE = isPlatform("ios") ? width * 0.72 : width * 0.72;
 const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
-const BACKDROP_HEIGHT = height * 0.45;
+
 
 const Tab1: React.FC = () => {
   const [movies, setMovies] = useState<any[]>([]);
@@ -33,6 +33,7 @@ const Tab1: React.FC = () => {
    //   
 
       const movies = await getMovies();
+      console.log(movies)
        
       setMovies([{ key: "empty-left" }, ...movies, { key: "empty-right" }]);
 
@@ -44,7 +45,6 @@ const Tab1: React.FC = () => {
 
     if (movies.length === 0) {
       fetchData();
-      
     }
   }, [movies, slider1]);
   const styles: any = {
@@ -127,7 +127,7 @@ const Tab1: React.FC = () => {
            {movies.length !==0 &&(<div style={{height:"60%"}}>
                 <SliderView movies={movies} name="Cartelera"/>
               </div> )}
-           
+           <IonButton  onClick={handleClick}> butacas</IonButton>
               </div>
      
     </IonPage>

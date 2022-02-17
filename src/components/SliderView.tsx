@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Redirect, Route,useHistory } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import './ExploreContainer.css';
 
@@ -11,7 +11,11 @@ interface MoviesPropd{
 
 
 const SliderView: React.FC<MoviesPropd> =({movies,name})=>{
-
+let history = useHistory();
+  function handleClick() {
+   history.push("/butacas");
+   // router.push("/butacas", "back", "push");
+  }
 	
 	return(
 	<>
@@ -36,7 +40,7 @@ const SliderView: React.FC<MoviesPropd> =({movies,name})=>{
       	if (item.poster) {
       	return(
       		<SwiperSlide key={item.key + "-movies"}>
-      		<div style={{ borderRadius: "15px",paddingBottom:"15px"}}>
+      		<div style={{ borderRadius: "15px",paddingBottom:"15px"}} onClick={handleClick}>
           <img
                
                 className="swiperalt"
