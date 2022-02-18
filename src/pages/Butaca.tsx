@@ -6,6 +6,10 @@ import './Butaca.css';
 const Butaca: React.FC = () => {
   const [asieto,setAsientos] = useState<any[]>([]);
   let route = useHistory();
+  function handleClick() {
+    route.goBack();
+  }
+
   useEffect(()=>{
     setAsientos(Asientos(12,10));
    
@@ -42,17 +46,20 @@ const Butaca: React.FC = () => {
       <div className="timedate" style={{height:"40%",width:"100%"}} >
         
         <div className="grad">        
-        <img className="img" alt="no" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIibXVIU4DURCA4Q9EBaLBoJrgKiEcoBfoATCcgBOgOQMXwGFx1VhIkMgmBQEGSJAkQDFvkidoRZn57Wa/TXb3zfD/JnhMcP7sCO9YVuCHeGv4RzY+xkvDPzHNxPexaPgXjjPxEeYN/8ZJJr6Hh4b/4DQT38V9w5c4y8SHuOvw80x8BzcdfpGJDzDr8EtsZT7gusOvsL0Jsu6mkuPfV/6KKP7I0RC3in7TqPSgRaWjIioddlHpuI7GeFa0cKIDvCpamVHp0o8meFp18RepAkYE7nsHmgAAAABJRU5ErkJggg=="/>
-        <h3>20 Enero 2022  </h3>
-    <img className="img" alt="no" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIic3WIW4CMBQA0DcUAgHB4EhwW8LcHG4exQW4wO6A3Ql2AuQuwCyTLEHiWKYWECgSssBMkzUkYNZP+LbNf8lv+385HZ/onVn/dxywwUMUsEnICt0I4BHbhHzjNgLpY5eQL3QikAF+ErJEOwIZYp+QBVoRyFMCDpijGYGMMmSGegTynCFT1EoDN3jJkAmqpZEKxhnyem7j1cVxid4ULlF+yO8KH3J+TT/QKJk89KGFtorQZhfaro8Hzl3J5PyNzDXuSyfnAkN/qcC35RecbkUnJ/dOewAAAABJRU5ErkJggg=="/>    
-  </div>
+        <a> <img className="img" alt="no"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIibXVIU4DURCA4Q9EBaLBoJrgKiEcoBfoATCcgBOgOQMXwGFx1VhIkMgmBQEGSJAkQDFvkidoRZn57Wa/TXb3zfD/JnhMcP7sCO9YVuCHeGv4RzY+xkvDPzHNxPexaPgXjjPxEeYN/8ZJJr6Hh4b/4DQT38V9w5c4y8SHuOvw80x8BzcdfpGJDzDr8EtsZT7gusOvsL0Jsu6mkuPfV/6KKP7I0RC3in7TqPSgRaWjIioddlHpuI7GeFa0cKIDvCpamVHp0o8meFp18RepAkYE7nsHmgAAAABJRU5ErkJggg=="/> 
+   
+   </a> <h3>20 Enero 2022  </h3>
+    <a><img className="img" alt="no" src="https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-right-arrows-those-icons-fill-those-icons-1.png"/>      
+  </a></div>
    <div className="grad">        
-   <img className="img" alt="no" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIibXVIU4DURCA4Q9EBaLBoJrgKiEcoBfoATCcgBOgOQMXwGFx1VhIkMgmBQEGSJAkQDFvkidoRZn57Wa/TXb3zfD/JnhMcP7sCO9YVuCHeGv4RzY+xkvDPzHNxPexaPgXjjPxEeYN/8ZJJr6Hh4b/4DQT38V9w5c4y8SHuOvw80x8BzcdfpGJDzDr8EtsZT7gusOvsL0Jsu6mkuPfV/6KKP7I0RC3in7TqPSgRaWjIioddlHpuI7GeFa0cKIDvCpamVHp0o8meFp18RepAkYE7nsHmgAAAABJRU5ErkJggg=="/> 
-    <h3>12:00  </h3>
-    <img className="img" alt="no" src="https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-right-arrows-those-icons-fill-those-icons-1.png"/>      
+  <a> <img className="img" alt="no" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA0ElEQVRIibXVIU4DURCA4Q9EBaLBoJrgKiEcoBfoATCcgBOgOQMXwGFx1VhIkMgmBQEGSJAkQDFvkidoRZn57Wa/TXb3zfD/JnhMcP7sCO9YVuCHeGv4RzY+xkvDPzHNxPexaPgXjjPxEeYN/8ZJJr6Hh4b/4DQT38V9w5c4y8SHuOvw80x8BzcdfpGJDzDr8EtsZT7gusOvsL0Jsu6mkuPfV/6KKP7I0RC3in7TqPSgRaWjIioddlHpuI7GeFa0cKIDvCpamVHp0o8meFp18RepAkYE7nsHmgAAAABJRU5ErkJggg=="/> 
+   
+   </a> <h3>12:00  </h3>
+   <a><img className="img" alt="no" src="https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-right-arrows-those-icons-fill-those-icons-1.png"/>      
+  </a>
   </div>
       <div className="grad" style={{paddingBottom:15}}>    
-      <IonButton style={{width:"70%",height:50}}>Siguiente</IonButton>    
+      <IonButton style={{width:"70%",height:50}} onClick={handleClick}>Siguiente</IonButton>    
    
       
       </div>

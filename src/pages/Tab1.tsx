@@ -127,7 +127,7 @@ const Tab1: React.FC = () => {
            {movies.length !==0 &&(<div style={{height:"60%"}}>
                 <SliderView movies={movies} name="Cartelera"/>
               </div> )}
-           <IonButton  onClick={handleClick}> butacas</IonButton>
+         
               </div>
      
     </IonPage>

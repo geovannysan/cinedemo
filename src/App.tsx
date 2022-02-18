@@ -1,17 +1,12 @@
 import { Redirect, Route } from 'react-router';
 import { IonReactRouter } from '@ionic/react-router';
 import {
-  IonApp,
-  
-  
-  IonRouterOutlet,
- 
-  createAnimation,
-  
-  
+  IonApp, 
+  IonRouterOutlet, 
+  createAnimation, 
   setupIonicReact
 } from '@ionic/react';
-
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 import Butaca from './pages/Butaca';
 
@@ -66,14 +61,16 @@ SwiperCore.use([
 
 const animationBuilder = (baseEl: any, opts?: any) => {
     const enteringAnimation = createAnimation()
-      .addElement(opts.enteringEl)      
-      .fromTo('opacity', 0, 1)
-      .duration(350);
+      .addElement(opts.enteringEl)  
+       .fromTo('transform', 'translateY(100px)', 'translateY(0px)')    
+      .fromTo('opacity', 1, 0.2)
+      .duration(550);
 
     const leavingAnimation = createAnimation()
       .addElement(opts.leavingEl)
-      .fromTo('opacity', 1, 0)
-      .duration(350);
+      .fromTo('transform', 'translateY(0px)', 'translateY(100px)')    
+      .fromTo('opacity', 1, 0.2)
+      .duration(550);
 
     const animation = createAnimation()
       .addAnimation(enteringAnimation)
@@ -83,7 +80,12 @@ const animationBuilder = (baseEl: any, opts?: any) => {
   };
 setupIonicReact();
 
-const App: React.FC = () => (
+
+const App: React.FC = () => 
+{
+StatusBar.setOverlaysWebView({ overlay: true });
+return(
+
 
   <IonApp>
     <IonReactRouter  >
@@ -103,6 +105,6 @@ const App: React.FC = () => (
         </IonReactRouter>
 
   </IonApp>
-);
+)};
 
 export default App;
