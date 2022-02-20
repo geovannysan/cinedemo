@@ -1,9 +1,10 @@
-import { Redirect, Route } from 'react-router';
+import { Redirect, Route  } from 'react-router';
 import { IonReactRouter } from '@ionic/react-router';
 import {
   IonApp, 
   IonRouterOutlet, 
   createAnimation, 
+  isPlatform,
   setupIonicReact
 } from '@ionic/react';
 import { StatusBar, Style } from '@capacitor/status-bar';
@@ -63,14 +64,14 @@ const animationBuilder = (baseEl: any, opts?: any) => {
     const enteringAnimation = createAnimation()
       .addElement(opts.enteringEl)  
        .fromTo('transform', 'translateY(100px)', 'translateY(0px)')    
-      .fromTo('opacity', 1, 0.2)
-      .duration(550);
+      .fromTo('opacity', 0, 1)
+      .duration(350);
 
     const leavingAnimation = createAnimation()
       .addElement(opts.leavingEl)
       .fromTo('transform', 'translateY(0px)', 'translateY(100px)')    
-      .fromTo('opacity', 1, 0.2)
-      .duration(550);
+     
+      .duration(350);
 
     const animation = createAnimation()
       .addAnimation(enteringAnimation)
@@ -83,7 +84,10 @@ setupIonicReact();
 
 const App: React.FC = () => 
 {
-StatusBar.setOverlaysWebView({ overlay: true });
+  if (isPlatform("android")) {
+    StatusBar.setOverlaysWebView({ overlay: true });
+  }
+//
 return(
 
 

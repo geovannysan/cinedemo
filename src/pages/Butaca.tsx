@@ -1,4 +1,4 @@
-import { IonContent, IonPage,IonIcon,IonButton} from '@ionic/react';
+import { IonContent, IonPage,IonButton} from '@ionic/react';
 import {useState,useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import {Asientos} from '../libs/Asientos';
@@ -9,12 +9,32 @@ const Butaca: React.FC = () => {
   function handleClick() {
     route.goBack();
   }
-
-  useEffect(()=>{
-    setAsientos(Asientos(12,10));
-   
+  var arrayList:any = [];
+function toggleValueInArray(array:any, value:string) {
+  var index = array.indexOf(value);
+  if (index == -1) {
+    array.push(value);
+  } else {
+    do {
+      array.splice(index, 1);
+      index = array.indexOf(value);
+    } while (index != -1);
+  }
+}
   
-
+  useEffect(()=>{
+    setAsientos(Asientos(12,10)); 
+    const container = document.querySelectorAll('.container');
+container.forEach(c=>{c.addEventListener('click', (e:any) => {
+   const dato = e.target.getAttribute('class').split(" ")[1];
+  if (e.target.classList.contains('round') && !e.target.classList.contains('occupied')) 
+    e.target.classList.toggle('selected');
+   toggleValueInArray(arrayList,dato)
+   
+   return e.target;
+    
+    
+})});
   },[])
   return (
     <IonPage>
@@ -38,7 +58,8 @@ const Butaca: React.FC = () => {
         {asieto.length !==0 &&( asieto.map((val:any,i:number) => 
           <div className='row' key={i+1}>
           {val.map((e:any,index:number)=>
-            <div key={index+1} className="round {e.letra} seat"></div>
+            
+             (e.letra=="f5"||e.letra=="f4")?<div key={index+1} className={`round ${e.letra} seat occupied ` }></div>:<div key={index+1} className={`round ${e.letra} seat  ` }></div>
             )}
           </div>))
         }               

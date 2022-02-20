@@ -33,7 +33,7 @@ const Tab1: React.FC = () => {
    //   
 
       const movies = await getMovies();
-      console.log(movies)
+      //console.log(movies)
        
       setMovies([{ key: "empty-left" }, ...movies, { key: "empty-right" }]);
 
