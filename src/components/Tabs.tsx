@@ -8,10 +8,12 @@ import {
   IonTabButton,
   IonTabs} from '@ionic/react';
 import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from '../pages/Tab1';
-import Tab2 from '../pages/Tab2';
+import {Tab1,Tab2,Tab3} from '../Routers/page';
 
-import Tab3 from '../pages/Tab3';
+//import Tab1 from '../pages/Tabs/Tab1';
+//import Tab2 from '../pages/Tabs/Tab2';
+
+//import Tab3 from '../pages/Tabs/Tab3';
 const animationBuilder = (baseEl: any, opts?: any) => {
     const enteringAnimation = createAnimation()
       .addElement(opts.enteringEl)  

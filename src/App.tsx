@@ -80,13 +80,18 @@ const animationBuilder = (baseEl: any, opts?: any) => {
     return animation;
   };
 setupIonicReact();
+const setStatusBarStyleLight = async () => {
+  await StatusBar.setStyle({ style: Style.Light });
+};
 
 
 const App: React.FC = () => 
 {
   if (isPlatform("android")) {
-    StatusBar.setOverlaysWebView({ overlay: true });
-  }
+    StatusBar.setOverlaysWebView({ overlay: false });
+    StatusBar.getInfo();
+    setStatusBarStyleLight();
+      }
 //
 return(
 

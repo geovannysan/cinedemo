@@ -1,9 +1,9 @@
 import { IonButton,  IonPage,  isPlatform } from '@ionic/react';
 import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
-import { getMovies } from "../utils/api";
-import ExploreContainer from '../components/ExploreContainer';
-import SliderView from '../components/SliderView';
+import { getMovies } from "../../utils/api";
+import ExploreContainer from '../../components/ExploreContainer';
+import SliderView from '../../components/SliderView';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";

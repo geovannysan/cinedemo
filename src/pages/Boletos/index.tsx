@@ -1,7 +1,7 @@
 import { IonContent, IonPage,IonButton} from '@ionic/react';
 import {useState,useEffect} from 'react';
 import { useHistory } from "react-router-dom";
-import {Asientos} from '../libs/Asientos';
+import {Asientos} from '../../libs/Asientos';
 import './Butaca.css';
 const Butaca: React.FC = () => {
   const [asieto,setAsientos] = useState<any[]>([]);
