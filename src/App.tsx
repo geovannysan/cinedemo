@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 import { Redirect, Route  } from 'react-router';
 import { IonReactRouter } from '@ionic/react-router';
 import {
@@ -5,7 +7,9 @@ import {
   IonRouterOutlet, 
   createAnimation, 
   isPlatform,
-  setupIonicReact
+  IonToast,
+  setupIonicReact,
+
 } from '@ionic/react';
 import { StatusBar, Style } from '@capacitor/status-bar';
 
@@ -87,6 +91,7 @@ const setStatusBarStyleLight = async () => {
 
 const App: React.FC = () => 
 {
+   const [showToast1, setShowToast1] = useState(false);
   if (isPlatform("android")) {
     StatusBar.setOverlaysWebView({ overlay: false });
     StatusBar.getInfo();
@@ -112,6 +117,16 @@ return(
           </IonRouterOutlet>
 
         </IonReactRouter>
+
+    <IonToast
+        isOpen={showToast1}
+        onDidDismiss={() => setShowToast1(false)}
+        keyboardClose={true}       
+        icon="wifi-outline"
+        position="bottom"
+        message="Your settings have been saved."
+        duration={300}
+      />
 
   </IonApp>
 )};
