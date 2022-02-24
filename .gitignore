@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/io.ionic.starter
 # production
 /build
 

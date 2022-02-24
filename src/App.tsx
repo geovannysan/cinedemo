@@ -15,7 +15,8 @@ import {useDispatch,useSelector}from'react-redux';
 
 import {setToast} from './StoreRedux/Slice/toastSlice';
 import { Network } from '@capacitor/network';
-import Butaca from './pages/Butaca';
+import {InfoPeli,Butaca} from './Routers/page';
+
 import { wifi } from 'ionicons/icons';
 import Tabs from './components/Tabs';
 
@@ -125,7 +126,8 @@ return(
     <IonReactRouter  >
           <IonRouterOutlet  animation={animationBuilder} >
 
-            <Route exact path="/butacas" render={() => <Butaca  />} />
+            <Route exact  path="/butacas" render={() => <Butaca  />} />
+            <Route exact path="/Info" render={()=> <InfoPeli/>}/>
             <Route path="/home"  >
               <Tabs />
             </Route>

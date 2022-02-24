@@ -1,0 +1,20 @@
+.content{
+	height: 100% ;
+	width: 100%;
+	
+}
+.imgcontec{
+	width: 100%;
+	padding-top: 10px;
+	height:40%;
+	margin: 0;
+	background-color: "";
+
+
+}
+.List{
+	height: 60%;
+	margin: 0;
+	background-color: blue;
+
+}

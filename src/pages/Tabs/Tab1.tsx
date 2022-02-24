@@ -24,7 +24,7 @@ const Tab1: React.FC = () => {
    let history = useHistory();
 
   function handleClick() {
-    history.push("/butacas");
+    history.push("/Info");
   }
 //console.log({"uno":[movies]});
 //console.log(slider1);
