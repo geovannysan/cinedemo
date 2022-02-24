@@ -142,7 +142,7 @@ return(
 
     <IonToast
         isOpen={valor.toast.connected}
-        //onDidDismiss={()=> dispatch()}
+        onDidDismiss={()=> dispatch(setToast({connected:false,message:"desconectado"}))}
         
         keyboardClose={true}       
         icon={wifi}
