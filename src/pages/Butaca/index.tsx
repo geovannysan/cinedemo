@@ -12,13 +12,13 @@ const Butaca: React.FC = () => {
   var arrayList:any = [];
 function toggleValueInArray(array:any, value:string) {
   var index = array.indexOf(value);
-  if (index == -1) {
+  if (index === -1) {
     array.push(value);
   } else {
     do {
       array.splice(index, 1);
       index = array.indexOf(value);
-    } while (index != -1);
+    } while (index !== -1);
   }
 }
   
@@ -59,7 +59,7 @@ container.forEach(c=>{c.addEventListener('click', (e:any) => {
           <div className='row' key={i+1}>
           {val.map((e:any,index:number)=>
             
-             (e.letra=="f5"||e.letra=="f4")?<div key={index+1} className={`round ${e.letra} seat occupied ` }></div>:<div key={index+1} className={`round ${e.letra} seat  ` }></div>
+             (e.letra==="f5"||e.letra==="f4")?<div key={index+1} className={`round ${e.letra} seat occupied ` }></div>:<div key={index+1} className={`round ${e.letra} seat  ` }></div>
             )}
           </div>))
         }               

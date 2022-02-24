@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState ,useEffect} from 'react';
 
 import { Redirect, Route  } from 'react-router';
 import { IonReactRouter } from '@ionic/react-router';
@@ -9,13 +9,17 @@ import {
   isPlatform,
   IonToast,
   setupIonicReact,
-
 } from '@ionic/react';
 import { StatusBar, Style } from '@capacitor/status-bar';
+import {useDispatch,useSelector}from'react-redux';
 
+import {setToast} from './StoreRedux/Slice/toastSlice';
+import { Network } from '@capacitor/network';
 import Butaca from './pages/Butaca';
-
+import { wifi } from 'ionicons/icons';
 import Tabs from './components/Tabs';
+
+
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -89,13 +93,29 @@ const setStatusBarStyleLight = async () => {
 };
 
 
-const App: React.FC = () => 
-{
-   const [showToast1, setShowToast1] = useState(false);
-  if (isPlatform("android")) {
-    StatusBar.setOverlaysWebView({ overlay: false });
-    StatusBar.getInfo();
-    setStatusBarStyleLight();
+
+const App: React.FC = () =>{
+const valor:any= useSelector((state:any)=> state.toast)
+
+const dispatch = useDispatch();
+   const [showToast1, setShowToast1] = useState(true);
+  
+
+Network.addListener('networkStatusChange', status => {
+  
+  (status.connected)? dispatch(setToast({connected:status.connected,message:"conectado"})):dispatch(setToast({connected:true,message:"desconectado"}))
+  
+});
+
+
+
+
+
+  if (isPlatform("android")) {  
+  
+    //StatusBar.setOverlaysWebView({ overlay: false });
+   // StatusBar.getInfo();
+   // setStatusBarStyleLight();
       }
 //
 return(
@@ -119,12 +139,13 @@ return(
         </IonReactRouter>
 
     <IonToast
-        isOpen={showToast1}
-        onDidDismiss={() => setShowToast1(false)}
+        isOpen={valor.toast.connected}
+        //onDidDismiss={()=> dispatch()}
+        
         keyboardClose={true}       
-        icon="wifi-outline"
+        icon={wifi}
         position="bottom"
-        message="Your settings have been saved."
+        message={valor.toast.message}
         duration={300}
       />
 

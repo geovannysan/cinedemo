@@ -1,11 +1,11 @@
-import { IonButton,  IonPage,  isPlatform } from '@ionic/react';
+import {   IonPage,  isPlatform } from '@ionic/react';
 import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { getMovies } from "../../utils/api";
 import ExploreContainer from '../../components/ExploreContainer';
 import SliderView from '../../components/SliderView';
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Network } from '@capacitor/network'; 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -29,6 +29,9 @@ const Tab1: React.FC = () => {
 //console.log({"uno":[movies]});
 //console.log(slider1);
   useEffect(() => {
+     Network.addListener('networkStatusChange', status => {
+  console.log('Network status changed', status);
+});
     const fetchData = async () => {
    //   
 
@@ -79,7 +82,7 @@ const Tab1: React.FC = () => {
                      watchSlidesProgress={true}
                      onSwiper={(swiper) => {
                        setSlider1(swiper);
-                       console.log(swiper);
+                       
                      }}
                      effect={"coverflow"}
                      coverflowEffect={{
