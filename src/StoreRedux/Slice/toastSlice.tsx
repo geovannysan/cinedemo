@@ -1,6 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
-	toast:[]
+	toast:[],
+	detalle:[]
 }
 const toastSlice= createSlice({
 	name:'toast',
@@ -8,11 +9,16 @@ const toastSlice= createSlice({
 	reducers:{
 		setToast:(state,action)=>{
 			state.toast= action.payload;
+		},
+		setDetalle:(state,action)=>{
+			 state.detalle= action.payload;
+			
+			
 		}
 
 
 	}
 })
-export const{setToast }=toastSlice.actions;
+export const{setToast,setDetalle }=toastSlice.actions;
 export default toastSlice.reducer;
 

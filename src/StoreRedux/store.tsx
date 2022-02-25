@@ -4,6 +4,7 @@ import toastSlice from './Slice/toastSlice';
 
 export const store = configureStore({
 	reducer:{
-		toast:toastSlice
+		toast:toastSlice,
+		detalle:toastSlice
 	}
 })

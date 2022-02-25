@@ -5,7 +5,9 @@ import { getMovies } from "../../utils/api";
 import ExploreContainer from '../../components/ExploreContainer';
 import SliderView from '../../components/SliderView';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Network } from '@capacitor/network'; 
+import {useDispatch,useSelector}from'react-redux';
+
+import {setDetalle} from '../../StoreRedux/Slice/toastSlice';
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -19,19 +21,22 @@ const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
 
 
 const Tab1: React.FC = () => {
+  const dispatch = useDispatch();
+   
   const [movies, setMovies] = useState<any[]>([]);
   const [slider1, setSlider1] = useState<any>(null);
    let history = useHistory();
 
   function handleClick(items:any) {
+    dispatch(setDetalle({...items}))
     history.push("/Info",{params:items});
+   
+   
   }
 //console.log({"uno":[movies]});
 //console.log(slider1);
   useEffect(() => {
-     Network.addListener('networkStatusChange', status => {
-  console.log('Network status changed', status);
-});
+
     const fetchData = async () => {
    //   
 

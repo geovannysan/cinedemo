@@ -5,16 +5,22 @@
 }
 .imgcontec{
 	width: 100%;
-	padding-top: 10px;
-	height:40%;
+	
+	height:45%;
 	margin: 0;
-	background-color: blue;
+	
 
 
 }
+.detalles{
+	 background-size: cover;
+   height: 100%;
+   width: 100% ;
+   text-align: center;
+}
 .List{
-	height: 70%;
+	height: 60%;
 	margin: 0;
-	background-color: red;
+	
 
 }

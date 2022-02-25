@@ -146,7 +146,7 @@ return(
         icon={wifi}
         position="bottom"
         message={valor.toast.message}
-        duration={300}
+        duration={600}
       />
 
   </IonApp>
