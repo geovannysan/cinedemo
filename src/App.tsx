@@ -72,13 +72,13 @@ SwiperCore.use([
 const animationBuilder = (baseEl: any, opts?: any) => {
     const enteringAnimation = createAnimation()
       .addElement(opts.enteringEl)  
-       .fromTo('transform', 'translateY(100px)', 'translateY(0px)')    
+       .fromTo('transform', 'translateX(100px)', 'translateX(0px)')    
       .fromTo('opacity', 0, 1)
       .duration(350);
 
     const leavingAnimation = createAnimation()
       .addElement(opts.leavingEl)
-      .fromTo('transform', 'translateY(0px)', 'translateY(100px)')    
+      .fromTo('transform', 'translateX(0px)', 'translateX(100px)')    
      
       .duration(350);
 
@@ -99,9 +99,7 @@ const App: React.FC = () =>{
 const valor:any= useSelector((state:any)=> state.toast)
 
 const dispatch = useDispatch();
-   const [showToast1, setShowToast1] = useState(true);
   
-
 Network.addListener('networkStatusChange', status => {
   
   (status.connected)? dispatch(setToast({connected:status.connected,message:"conectado"})):dispatch(setToast({connected:true,message:"desconectado"}))

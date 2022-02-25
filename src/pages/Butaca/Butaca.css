@@ -5,9 +5,11 @@
   background:#191919;
   width: 100% !important;
   height: 100% !important;
+  margin: 0 !important;
 display: flex;
 flex-direction:  column;
 }
+
 .grad{
   display: flex;
  

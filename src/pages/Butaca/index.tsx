@@ -1,4 +1,4 @@
-import { IonContent, IonPage,IonButton} from '@ionic/react';
+import { IonContent, IonPage,IonButton,IonHeader,IonToolbar,IonBackButton,IonButtons} from '@ionic/react';
 import {useState,useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import {Asientos} from '../../libs/Asientos';
@@ -38,6 +38,16 @@ container.forEach(c=>{c.addEventListener('click', (e:any) => {
   },[])
   return (
     <IonPage>
+    <IonHeader className="ion-no-border" >
+    <IonToolbar color="blue">
+    <IonButtons slot="start">
+          <IonBackButton icon="chevron-back-outline" >
+          
+          </IonBackButton>
+        </IonButtons>
+  
+    </IonToolbar>
+    </IonHeader>
       <IonContent fullscreen>
       
       <div  className="raiz" >   

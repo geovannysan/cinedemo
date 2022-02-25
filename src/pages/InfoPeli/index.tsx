@@ -1,30 +1,37 @@
 import {
   IonPage,
-  IonTabsContextState,
   IonList,
   IonHeader,
   IonToolbar,
-  IonBackButton
+  IonBackButton,
+  IonButtons
 } from '@ionic/react';
 import './InfoPeli.css';
-
+import { useLocation } from 'react-router-dom';
 
 const InfoCine: React.FC=()=>{
+	const location = useLocation();
+    const myparam = location.state;
+    console.log(myparam)
 	return(
-		<IonPage>
-		<IonHeader collapse="fade" translucent={true}
-		>
+		<IonPage >
+		<IonHeader className="ion-no-border">
 		<IonToolbar>
-		<IonBackButton
-
-		/>
-		Atras
+		<IonButtons slot="start">
+          <IonBackButton icon="chevron-back-outline" >
+          
+          </IonBackButton>
+        </IonButtons>
+	
 		</IonToolbar>
 		</IonHeader>
 		<div className="content">
+
 		<div className="imgcontec">
+		
 			
 		</div>
+		
 		<div className="List">
 		<IonList>
 		</IonList>	

@@ -23,8 +23,8 @@ const Tab1: React.FC = () => {
   const [slider1, setSlider1] = useState<any>(null);
    let history = useHistory();
 
-  function handleClick() {
-    history.push("/Info");
+  function handleClick(items:any) {
+    history.push("/Info",{params:items});
   }
 //console.log({"uno":[movies]});
 //console.log(slider1);
@@ -65,7 +65,7 @@ const Tab1: React.FC = () => {
     },
   };
   return ( 
-    <IonPage>    
+    <IonPage >    
      
      <div className="cinebody"  >
            {movies.length !==0 &&(
@@ -105,13 +105,16 @@ const Tab1: React.FC = () => {
                      if (item.poster) {
                          return (
                            <SwiperSlide key={item.key + "-movies"} >
-                             <div className="movie-slide" style={styles.movieSlides} onClick={handleClick}>
+                             <div className="movie-slide" style={styles.movieSlides} onClick={()=>handleClick(item)}>
+                              
                                <img
                                className="swiperalt"
                                  alt="alt-img"
                                  src={item.poster}
                                  style={styles.posterImage}
                                />
+                               
+
                                <div className="slide">
                                
                                 {/* <IonLabel color="medium"><h1>{item.title}</h1></IonLabel>*/}
