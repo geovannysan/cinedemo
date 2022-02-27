@@ -1,16 +1,29 @@
 .content{
 	height: 100% ;
 	width: 100%;
-	
+	position: relative; ;
+}
+.Toolbar{
+	position: absolute;
+}
+.back{
+	color: white;
+}
+
+.generos{
+	height: auto;
+  
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+align-content: center;
+justify-content: center;
 }
 .imgcontec{
 	width: 100%;
-	
-	height:45%;
+	height:55%;
 	margin: 0;
-	
-
-
 }
 .detalles{
 	 background-size: cover;
@@ -21,6 +34,4 @@
 .List{
 	height: 60%;
 	margin: 0;
-	
-
 }

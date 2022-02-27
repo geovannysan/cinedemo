@@ -74,6 +74,8 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+  --ion-toolbar-background:transparent;
+  --ion-icon-background: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -226,6 +228,7 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-step-950: #f3f3f3;
 
     --ion-item-background: #1e1e1e;
+
 
     --ion-toolbar-background: #1f1f1f;
 
