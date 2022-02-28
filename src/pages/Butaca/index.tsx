@@ -41,7 +41,7 @@ container.forEach(c=>{c.addEventListener('click', (e:any) => {
     <IonHeader className="ion-no-border" >
     <IonToolbar >
     <IonButtons slot="start">
-          <IonBackButton  icon="chevron-back-outline" >
+          <IonBackButton className="back" icon="chevron-back-outline" >
           
           </IonBackButton>
         </IonButtons>

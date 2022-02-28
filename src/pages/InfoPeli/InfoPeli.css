@@ -1,9 +1,9 @@
 .content{
-	height: 100% ;
+	height: 65% ;
 	width: 100%;
-	position: relative; ;
+	position: relative ;
 }
-.Toolbar{
+.ion-no-border{
 	position: absolute;
 }
 .back{
@@ -21,17 +21,54 @@ align-content: center;
 justify-content: center;
 }
 .imgcontec{
+
 	width: 100%;
-	height:55%;
-	margin: 0;
+	height:100%;
+	filter: blur(0.5px);
+	position: absolute;
+
+}
+.description{
+	
+display: block;
+    display: -webkit-box;
+    height: 14px * 1.3 * 6;
+    font-size: 14px;
+    line-height: 1.3;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+           
+          color:white;
+          
+     
 }
 .detalles{
 	 background-size: cover;
    height: 100%;
    width: 100% ;
+  filter: blur(0.5px);
    text-align: center;
+   position: relative;
+   z-index: 1;
+}
+.opaco{
+	 height: 100%;
+   width: 100% ;
+	 background-color: rgb(0, 0, 0);
+       opacity: .3;
+   position: absolute;
+    z-index: 3;
+}
+.informacion{
+	position: absolute;
+	color: white;
+ 	bottom:5px; 
+	z-index: 2;
 }
 .List{
-	height: 60%;
+	padding-top: 5px;
+	height: 35%;
 	margin: 0;
 }

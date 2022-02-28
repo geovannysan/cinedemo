@@ -1,5 +1,5 @@
 import {IonPage,IonHeader,IonToolbar,IonIcon,
-  IonBackButton,IonChip,IonButton,IonTitle,
+  IonBackButton,IonChip,IonButton,
   IonLabel,IonButtons,IonCardContent,
   IonCardSubtitle,IonCardTitle,IonCardHeader} from '@ionic/react';
 import {useSelector}from'react-redux';
@@ -12,7 +12,7 @@ const InfoCine: React.FC=()=>{
 
 
     const myparam:any= useSelector(((state:any)=>state.detalle))
-    const {poster,title,description,genres} =  myparam.detalle;
+    const {poster,title,description,genres,rating} =  myparam.detalle;
    
 	return(
 		<IonPage >
@@ -36,15 +36,26 @@ const InfoCine: React.FC=()=>{
 		<div className="content">
    
 		<div className="imgcontec">
-		<img
-    className="detalles"
-    alt="alt-img"
-    src={poster} />
- 
+    <div className="informacion">
+        <IonCardHeader>            
+            <IonCardTitle style={{color:"white",}} ><strong>{title}</strong></IonCardTitle>
+            <IonCardSubtitle style={{color:"white", margin:"5"}}><strong>{rating} <IonIcon className="back"  md="star-outline" /></strong></IonCardSubtitle>
+          </IonCardHeader>
+
+          <IonCardContent className="description">
+           <strong>{description}</strong>
+            </IonCardContent>
+     </div>
+
+		<img className="detalles"
+        alt="alt-img"
+        src={poster} />
+    
 		
 		</div>
-		
+    </div>
 		<div className="List">
+	
      
     <div className="generos">
     {genres.map((dat:any,i:number)=>{
@@ -54,21 +65,17 @@ const InfoCine: React.FC=()=>{
                     <IonLabel color="primary">{dat}</IonLabel>
                     
                   </IonChip>)
-    })
-                
-   }
-
-      
-   
-       
+    })} 
      </div>
 		
-    <IonButton expand="full"> Continuar</IonButton>
+  
 		</div>
-		</div>
+
 
 		</IonPage>
 			);
+
+
 
 }
 

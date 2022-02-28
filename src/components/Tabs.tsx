@@ -53,16 +53,18 @@ const Tabs: React.FC = () => {
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/home/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonIcon md="film-outline" />
+            <IonLabel></IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/home/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonIcon md="sparkles-outline"/>
+            <IonLabel></IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/home/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <IonIcon md="ticket-outline" />
+            
+
+            <IonLabel></IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
