@@ -1,6 +1,8 @@
 import React from "react";
 import { Redirect, Route,useHistory } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
+import {useDispatch,useSelector}from'react-redux';
+import {setDetalle} from '../StoreRedux/Slice/toastSlice';
 import './ExploreContainer.css';
 
 interface MoviesPropd{
@@ -11,11 +13,16 @@ interface MoviesPropd{
 
 
 const SliderView: React.FC<MoviesPropd> =({movies,name})=>{
-let history = useHistory();
-  function handleClick() {
-   history.push("/butacas");
-   // router.push("/butacas", "back", "push");
+  let history = useHistory();
+    const dispatch = useDispatch();
+   function handleClick(items:any) {
+    dispatch(setDetalle({...items}))
+    history.push("/Info",{params:items});
+   
+   
   }
+
+
 	
 	return(
 	<>

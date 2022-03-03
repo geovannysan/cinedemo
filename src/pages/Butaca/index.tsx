@@ -1,11 +1,15 @@
-import { IonContent, IonPage,IonButton,IonHeader,IonToolbar,IonBackButton,IonButtons} from '@ionic/react';
+import { IonContent, IonPage,IonButton,IonHeader,IonToolbar,IonBackButton,IonButtons,IonModal } from '@ionic/react';
 import {useState,useEffect} from 'react';
+import {useSelector}from'react-redux';
 import { useHistory } from "react-router-dom";
 import {Asientos} from '../../libs/Asientos';
 import './Butaca.css';
 const Butaca: React.FC = () => {
   const [asieto,setAsientos] = useState<any[]>([]);
   let route = useHistory();
+
+    const myparam= useSelector(((state:any)=>state.detalle))
+    const {poster,title,description,genres,rating,releaseDate} =  myparam.detalle; 
   function handleClick() {
     route.goBack();
   }
@@ -57,8 +61,8 @@ container.forEach(c=>{c.addEventListener('click', (e:any) => {
   
   </div>
    <div className="grad2 "> 
-      <h6 style={{margin: 0 }}>Suspiro</h6>
-<p style={{margin:0,paddingTop:5 }}>Asentos Disponibles</p>
+      <h6 style={{margin: 0 }}>{title}</h6>
+<p style={{margin:0,paddingTop:5 }}>Asientos Disponibles</p>
   
   </div>
 

@@ -1,8 +1,10 @@
 import {IonPage,IonHeader,IonToolbar,IonIcon,
-  IonBackButton,IonChip,IonButton,
+  IonBackButton,IonChip,IonButton,IonText,
   IonLabel,IonButtons,IonCardContent,
   IonCardSubtitle,IonCardTitle,IonCardHeader} from '@ionic/react';
-import {useSelector}from'react-redux';
+import {useSelector,useDispatch}from'react-redux';
+import {toggle} from'../../StoreRedux/Slice/favoriteSlice';
+
 import './InfoPeli.css';
 
 
@@ -10,9 +12,13 @@ const InfoCine: React.FC=()=>{
 	
 	
 
+    const usedispatch = useDispatch();   
+    const myparam= useSelector(((state:any)=>state.toast))
+    const favorito = useSelector((state:any)=>state.favorite)
 
-    const myparam:any= useSelector(((state:any)=>state.detalle))
-    const {poster,title,description,genres,rating} =  myparam.detalle;
+    
+    const {poster,title,description,genres,rating,releaseDate} =  myparam.detalle;
+
    
 	return(
 		<IonPage >
@@ -25,7 +31,7 @@ const InfoCine: React.FC=()=>{
         </IonButtons>
       
     <IonButtons slot="end">
-      <IonButton color="#fff" fill="clear">
+      <IonButton color="#fff" fill="clear"  onClick={()=>usedispatch(toggle({...myparam.detalle}))}>
       
         <IonIcon className="back"  md="heart" />
       </IonButton>
@@ -60,15 +66,23 @@ const InfoCine: React.FC=()=>{
     <div className="generos">
     {genres.map((dat:any,i:number)=>{
       return(
-            <IonChip  color="primary">
+            <IonChip key={i}  color="primary">
                     
                     <IonLabel color="primary">{dat}</IonLabel>
                     
                   </IonChip>)
     })} 
      </div>
+    <div className="datos-movie">
+      <IonText><h1> {title}</h1></IonText>
+      <IonText><h3> {releaseDate}</h3></IonText>
+    </div>
 		
-  
+    <div className="contaier-butto">
+    <div className="contaier-button">
+  <IonButton expand="full">Continuar</IonButton>
+  </div>
+  </div>
 		</div>
 
 

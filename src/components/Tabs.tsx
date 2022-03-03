@@ -7,7 +7,7 @@ import {
   createAnimation,
   IonTabButton,
   IonTabs} from '@ionic/react';
-import { ellipse, square, triangle } from 'ionicons/icons';
+//import { ellipse, square, triangle } from 'ionicons/icons';
 import {Tab1,Tab2,Tab3} from '../Routers/page';
 
 //import Tab1 from '../pages/Tabs/Tab1';
