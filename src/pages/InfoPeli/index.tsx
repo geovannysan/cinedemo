@@ -3,7 +3,7 @@ import {IonPage,IonHeader,IonToolbar,IonIcon,
   IonLabel,IonButtons,IonCardContent,
   IonCardSubtitle,IonCardTitle,IonCardHeader} from '@ionic/react';
 import {useSelector,useDispatch}from'react-redux';
-import {toggle} from'../../StoreRedux/Slice/favoriteSlice';
+import {toggle,deleFavo} from'../../StoreRedux/Slice/favoriteSlice';
 
 import './InfoPeli.css';
 
@@ -15,9 +15,21 @@ const InfoCine: React.FC=()=>{
     const usedispatch = useDispatch();   
     const myparam= useSelector(((state:any)=>state.toast))
     const favorito = useSelector((state:any)=>state.favorite)
-
-    
-    const {poster,title,description,genres,rating,releaseDate} =  myparam.detalle;
+     const {poster,title,description,genres,rating,releaseDate,key} =  myparam.detalle;
+    const Istrue =  favorito.favorite.some((item:any)=>item.key === key);
+    console.log(Istrue)
+   
+    const favoritosClick=()=>{
+     
+      if (!Istrue)  {        
+        usedispatch(toggle({...myparam.detalle})) 
+        return true;
+      }
+      const newarray = favorito.favorite.filter((item:any)=>item.key !== key);
+        usedispatch(deleFavo({...myparam.detalle}))
+        
+        
+    }
 
    
 	return(
@@ -31,10 +43,16 @@ const InfoCine: React.FC=()=>{
         </IonButtons>
       
     <IonButtons slot="end">
-      <IonButton color="#fff" fill="clear"  onClick={()=>usedispatch(toggle({...myparam.detalle}))}>
+    {!Istrue?<IonButton color="#fff" fill="clear"  onClick={()=>usedispatch(toggle({...myparam.detalle}))} >
+              
+                <IonIcon className="back"  md="heart" />
+          </IonButton>:<IonButton color="#fff" fill="clear"  onClick={()=>usedispatch(deleFavo({...myparam.detalle}))} >
+              
+                <IonIcon className="back"  md="heart-dislike-outline" />
+          </IonButton>
+     }
+    
       
-        <IonIcon className="back"  md="heart" />
-      </IonButton>
     </IonButtons>
   
     </IonToolbar>

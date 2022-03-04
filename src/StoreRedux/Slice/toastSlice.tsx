@@ -9,7 +9,7 @@ const toastSlice= createSlice({
 	reducers:{
 		setToast:(state,action)=>{
 			state.toast= action.payload;
-		},
+		}, 
 		setDetalle:(state,action)=>{
 			 state.detalle= action.payload;
 			
