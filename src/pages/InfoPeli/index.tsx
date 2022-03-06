@@ -29,7 +29,7 @@ const InfoCine: React.FC=()=>{
   }
    
 	return(
-		<IonPage >
+		<IonPage  >
     <IonHeader className="ion-no-border Toolbar">
     <IonToolbar>
     <IonButtons slot="start">

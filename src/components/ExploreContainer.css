@@ -32,3 +32,31 @@
     bottom: 50;
     z-index: -10;
 }
+.frames{
+  display: flex;
+ 
+flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: stretch; 
+height: 90%;
+width: auto;  
+}
+.label{
+   display: flex;
+ 
+flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+  align-items: stretch; 
+width: 100%; 
+}
+
+.imations{
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border:none;
+}

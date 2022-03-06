@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonChip, IonLabel, IonIcon, IonAvatar } from '@ionic/react';
-import {arrowUpCircleOutline,arrowUndoCircle,arrowBack,arrowForward, pin, heart, closeCircle, close } from 'ionicons/icons';
+import {IonChip, IonLabel,} from '@ionic/react';
 import './ExploreContainer.css';
 
 

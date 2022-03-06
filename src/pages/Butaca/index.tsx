@@ -1,4 +1,4 @@
-import { IonContent, IonPage,IonButton,IonHeader,IonToolbar,IonBackButton,IonButtons,IonModal } from '@ionic/react';
+import { IonContent, IonPage,IonButton,IonHeader,IonToolbar,IonBackButton,IonButtons,IonModal,IonTitle } from '@ionic/react';
 import {useState,useEffect} from 'react';
 import {useSelector,useDispatch}from'react-redux';
 import { useHistory } from "react-router-dom";
@@ -12,8 +12,10 @@ const Butaca: React.FC = () => {
   const {title,key} =  myparam.detalle;
   const [asieto,setAsientos] = useState<any[]>([]);
   const [selection,setSelecion]= useState<any[]>([]);
+  const [anima,setAnima]= useState<boolean>(false);
   
   let usedispatch = useDispatch();
+  const history = useHistory();
      
   
   var arrayList:any = [];
@@ -31,17 +33,10 @@ function toggleValueInArray(array:any, value:string) {
         } while (index !== -1);
       }
           setSelecion(array)
-         //console.log( array)
     }
 }
- 
   useEffect(()=>{
     setAsientos(Asientos(12,10)); 
-    
-   
-
-    
-    
     const container = document.querySelectorAll('.container');
 container.forEach(c=>{c.addEventListener('click', (e:any) => {
    const dato = e.target.getAttribute('class').split(" ")[1];
@@ -52,42 +47,42 @@ if (dato === undefined || dato === null)return true;
   
    toggleValueInArray(arrayList,dato)
    
-   return e.target;
-    
-    
+   return e.target;  
 })});
   },[])
-   const newarr = ocupados.filter((item:any)=> item.key === key)
-   const verific:any =[]
+  const asi = ocupados.some((item:any)=> item.key === key)
+ const verific:any =[]
+  if (asi) {
+     const newarr = ocupados.filter((item:any)=> item.key === key)
+   
        newarr.map((item:any)=>{
              item.asiento.map((i:any)=>{ 
                verific.push(  i)
              });
           })
-    
     asieto.map(i=>{
       i.map((val:any)=>{
          //console.log(dataArr.includes( val.letra ))
         if( verific.includes( val.letra )){
-
           val.estado="occupied"
         }
        return val;
       })
     })
-   // setAsientos(asieto)
-   // console.log(asieto)
-   const guardar =()=>{
-      
-     //let arr= [...dataArr]
-    // if (datos) {
-      
-   //usedispatch(addasientos({key:key,asiento:[]})) 
-    // }
-      usedispatch(addasientos({key:key,asiento:[...verific,...selection]})) 
-     
-     
+  }
+  
+   
 
+
+   const guardar =()=>{
+     setAnima(true);
+      setTimeout(function(){
+  setAnima(false)
+   usedispatch(addasientos({key:key,asiento:[...verific,...selection]})) 
+   history.replace("/home/tab3")
+
+}, 7000);
+      
   }
   return (
     <IonPage>
@@ -154,7 +149,25 @@ if (dato === undefined || dato === null)return true;
         
         
       </IonContent>
+       <IonModal isOpen={anima} className='my-custom-class'>
+       <IonContent >
+        <IonHeader className="ion-no-border">
+            <IonToolbar>
+              <IonTitle></IonTitle>
+              <IonButtons slot="end">
+                
+              </IonButtons>
+            </IonToolbar>
+          </IonHeader>
+          
+            <div className="frame"> 
+          
+          <iframe className="imation" src="https://embed.lottiefiles.com/animation/9844"></iframe>
+            </div>
+          </IonContent>
+      </IonModal>
     </IonPage>
+
   );
 };
 

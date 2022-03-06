@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar ,IonList,IonItem ,IonAvatar
 ,IonImg,IonLabel,IonModal,IonButton,IonButtons,IonIcon} from '@ionic/react';
 import {useSelector}from'react-redux';
+
+
 import './Tab2.css';
 
 const Tab2: React.FC = () => {
@@ -12,9 +14,9 @@ const Tab2: React.FC = () => {
     <IonPage>
       <IonHeader >
         <IonToolbar >
-          <IonTitle>Tab  2</IonTitle>      
+          <IonTitle>Favoitos</IonTitle>      
         <IonButtons slot="end">
-	    	<IonButton  fill="clear" onClick={() => setShowModal(true)} >
+	    	<IonButton  fill="clear"  >
 	              
 	                <IonIcon   md="heart" />
 	        </IonButton>      
@@ -44,7 +46,7 @@ const Tab2: React.FC = () => {
       </IonContent>
        <IonModal isOpen={showModal} className='my-custom-class'>
        <IonContent >
-        <IonHeader className="border-ion-no-border">
+        <IonHeader className="ion-no-border">
             <IonToolbar>
               <IonTitle>Modal Content</IonTitle>
               <IonButtons slot="end">
@@ -53,27 +55,10 @@ const Tab2: React.FC = () => {
             </IonToolbar>
           </IonHeader>
           
-            <IonList>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonImg src="./avatar-gollum.jpg"/>
-                </IonAvatar>
-                <IonLabel>
-                  <h2>Gollum</h2>
-                  <p>Sneaky little hobbitses!</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonImg src="./avatar-gollum.jpg"/>
-                </IonAvatar>
-                <IonLabel>
-                  <h2>Gollum</h2>
-                  <p>Sneaky little hobbitses!</p>
-                </IonLabel>
-              </IonItem>
-              
-            </IonList>
+            <div className="frame"> 
+          
+          <iframe className="imation" src="https://embed.lottiefiles.com/animation/9844"></iframe>
+            </div>
           </IonContent>
       </IonModal>
     </IonPage>

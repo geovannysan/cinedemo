@@ -3,11 +3,13 @@ import Tab2 from '../pages/Tabs/Tab2';
 import Tab3 from '../pages/Tabs/Tab3';
 import Butaca from '../pages/Butaca';
 import InfoPeli from '../pages/InfoPeli';
+import Screm  from '../components/Screm';
 
 export{
 	Tab1,
 	Tab2,
 	Tab3,
 	Butaca,
-	InfoPeli
+	InfoPeli,
+	Screm
 };

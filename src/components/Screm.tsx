@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import {useHistory} from 'react-router-dom';
+
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonChip, IonLabel, IonIcon, IonAvatar } from '@ionic/react';
 import './ExploreContainer.css';
 
@@ -7,29 +8,39 @@ import './ExploreContainer.css';
 
 
 
-interface ContainerProps {
-  name:String;
-  index?:number;
-  movies:any[];
-  translatex?:number;
-  slider1?:any;
- }
+
 
 const Scream: React.FC = () => {
-const [slider2, setSlider2] = useState<any>(null);
+  const history = useHistory();
+  const guardar =()=>{
+     
+      setTimeout(function(){
  
-const width = window.innerWidth;
-    const height = window.innerHeight;
- const BACKDROP_HEIGHT = height * 0.45;
-  useEffect(() => {
-    
-    
-  }, [ ]);
+   history.replace("/home/tab1")
+  
+
+}, 9000);
+      
+  }
+
+ guardar();
 
 return (
-  <div style={{background:"dark"}}> 
-  
-    </div>
+  <IonPage>
+  <IonContent >
+        <IonHeader className="ion-no-border">
+            <IonToolbar>
+              <IonTitle></IonTitle>
+              
+            </IonToolbar>
+          </IonHeader>
+          
+            <div className="frames">           
+          <iframe className="imations" src="https://embed.lottiefiles.com/animation/64770"></iframe>
+         < div className="label"><h1 className="letra">Gocoding</h1> </div>
+            </div>
+          </IonContent>
+          </IonPage>
   );
 };
 

@@ -15,7 +15,7 @@ import {useDispatch,useSelector}from'react-redux';
 
 import {setToast} from './StoreRedux/Slice/toastSlice';
 import { Network } from '@capacitor/network';
-import {InfoPeli,Butaca} from './Routers/page';
+import {InfoPeli,Butaca,Screm} from './Routers/page';
 
 import { wifi } from 'ionicons/icons';
 import Tabs from './components/Tabs';
@@ -126,13 +126,12 @@ return(
 
             <Route exact  path="/butacas" render={() => <Butaca  />} />
             <Route exact path="/Info" render={()=> <InfoPeli/>}/>
+            <Route exact path="/" render={()=><Screm/>}/>
             <Route path="/home"  >
               <Tabs />
             </Route>
 
-            <Route exact path="/">
-            <Redirect from ="/"to="/home/tab1" />
-          </Route>
+            
 
           </IonRouterOutlet>
 
