@@ -4,6 +4,7 @@ import {IonPage,IonHeader,IonToolbar,IonIcon,
   IonCardSubtitle,IonCardTitle,IonCardHeader} from '@ionic/react';
 import {useSelector,useDispatch}from'react-redux';
 import {toggle,deleFavo} from'../../StoreRedux/Slice/favoriteSlice';
+import { useHistory } from 'react-router-dom';
 
 import './InfoPeli.css';
 
@@ -17,20 +18,15 @@ const InfoCine: React.FC=()=>{
     const favorito = useSelector((state:any)=>state.favorite)
      const {poster,title,description,genres,rating,releaseDate,key} =  myparam.detalle;
     const Istrue =  favorito.favorite.some((item:any)=>item.key === key);
-    console.log(Istrue)
    
-    const favoritosClick=()=>{
-     
-      if (!Istrue)  {        
-        usedispatch(toggle({...myparam.detalle})) 
-        return true;
-      }
-      const newarray = favorito.favorite.filter((item:any)=>item.key !== key);
-        usedispatch(deleFavo({...myparam.detalle}))
-        
-        
-    }
+    let history = useHistory();
 
+  function handleClick() {
+    
+    history.push("/butacas");
+   
+   
+  }
    
 	return(
 		<IonPage >
@@ -98,7 +94,7 @@ const InfoCine: React.FC=()=>{
 		
     <div className="contaier-butto">
     <div className="contaier-button">
-  <IonButton expand="full">Continuar</IonButton>
+  <IonButton expand="full" onClick={handleClick} >Continuar</IonButton>
   </div>
   </div>
 		</div>

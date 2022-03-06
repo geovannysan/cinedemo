@@ -5,7 +5,7 @@ import { getMovies } from "../../utils/api";
 import ExploreContainer from '../../components/ExploreContainer';
 import SliderView from '../../components/SliderView';
 import { Swiper, SwiperSlide } from "swiper/react";
-import {useDispatch,useSelector}from'react-redux';
+import {useDispatch}from'react-redux';
 
 import {setDetalle} from '../../StoreRedux/Slice/toastSlice';
 import "swiper/css";
@@ -29,7 +29,7 @@ const Tab1: React.FC = () => {
 
   function handleClick(items:any) {
     dispatch(setDetalle({...items}))
-    history.push("/Info",{params:items});
+    history.push("/Info");
    
    
   }

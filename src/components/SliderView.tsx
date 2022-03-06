@@ -1,7 +1,7 @@
 import React from "react";
-import { Redirect, Route,useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
-import {useDispatch,useSelector}from'react-redux';
+import {useDispatch}from'react-redux';
 import {setDetalle} from '../StoreRedux/Slice/toastSlice';
 import './ExploreContainer.css';
 
@@ -17,11 +17,12 @@ const SliderView: React.FC<MoviesPropd> =({movies,name})=>{
     const dispatch = useDispatch();
    function handleClick(items:any) {
     dispatch(setDetalle({...items}))
-    history.push("/Info",{params:items});
+    history.push("/Info");
    
    
   }
 
+ 
 
 	
 	return(
@@ -42,12 +43,12 @@ const SliderView: React.FC<MoviesPropd> =({movies,name})=>{
                        
                       />
       			)
-      		// code...
+      	
       	}
       	if (item.poster) {
       	return(
       		<SwiperSlide key={item.key + "-movies"}>
-      		<div style={{ borderRadius: "15px",paddingBottom:"15px"}} onClick={handleClick}>
+      		<div style={{ borderRadius: "15px",paddingBottom:"15px"}} onClick={()=>handleClick(item)}>
           <img
                
                 className="swiperalt"

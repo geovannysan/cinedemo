@@ -3,14 +3,14 @@
 	width: 100%;
 	position: relative ;
 }
-.ion-no-border{
-	position: absolute;
-}
+
 .back{
 
 	color: white;
 }
-
+.ion-no-border{
+	position: absolute;
+}
 .generos{
 	height: auto;
   

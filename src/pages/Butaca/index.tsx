@@ -1,38 +1,55 @@
 import { IonContent, IonPage,IonButton,IonHeader,IonToolbar,IonBackButton,IonButtons,IonModal } from '@ionic/react';
 import {useState,useEffect} from 'react';
-import {useSelector}from'react-redux';
+import {useSelector,useDispatch}from'react-redux';
 import { useHistory } from "react-router-dom";
+import {addasientos} from '../../StoreRedux/Slice/favoriteSlice';
+
 import {Asientos} from '../../libs/Asientos';
 import './Butaca.css';
 const Butaca: React.FC = () => {
+  const myparam= useSelector(((state:any)=>state.toast))
+    const ocupados = useSelector((state:any)=>state.favorite.asientos)
+  const {title,key} =  myparam.detalle;
   const [asieto,setAsientos] = useState<any[]>([]);
-  let route = useHistory();
-
-    const myparam= useSelector(((state:any)=>state.detalle))
-    const {poster,title,description,genres,rating,releaseDate} =  myparam.detalle; 
-  function handleClick() {
-    route.goBack();
-  }
+  const [selection,setSelecion]= useState<any[]>([]);
+  
+  let usedispatch = useDispatch();
+     
+  
   var arrayList:any = [];
 function toggleValueInArray(array:any, value:string) {
-  var index = array.indexOf(value);
-  if (index === -1) {
-    array.push(value);
-  } else {
-    do {
-      array.splice(index, 1);
-      index = array.indexOf(value);
-    } while (index !== -1);
-  }
+  if (value!=null){
+      var index = array.indexOf(value);
+      if (index === -1) {
+        array.push(value);
+        
+        
+      } else {
+        do {
+          array.splice(index, 1);
+          index = array.indexOf(value);
+        } while (index !== -1);
+      }
+          setSelecion(array)
+         //console.log( array)
+    }
 }
-  
+ 
   useEffect(()=>{
     setAsientos(Asientos(12,10)); 
+    
+   
+
+    
+    
     const container = document.querySelectorAll('.container');
 container.forEach(c=>{c.addEventListener('click', (e:any) => {
    const dato = e.target.getAttribute('class').split(" ")[1];
-  if (e.target.classList.contains('round') && !e.target.classList.contains('occupied')) 
+if (dato === undefined || dato === null)return true;
+   if (e.target.classList.contains('occupied')) return 
+  if (e.target.classList.contains('round')) 
     e.target.classList.toggle('selected');
+  
    toggleValueInArray(arrayList,dato)
    
    return e.target;
@@ -40,6 +57,38 @@ container.forEach(c=>{c.addEventListener('click', (e:any) => {
     
 })});
   },[])
+   const newarr = ocupados.filter((item:any)=> item.key === key)
+   const verific:any =[]
+       newarr.map((item:any)=>{
+             item.asiento.map((i:any)=>{ 
+               verific.push(  i)
+             });
+          })
+    
+    asieto.map(i=>{
+      i.map((val:any)=>{
+         //console.log(dataArr.includes( val.letra ))
+        if( verific.includes( val.letra )){
+
+          val.estado="occupied"
+        }
+       return val;
+      })
+    })
+   // setAsientos(asieto)
+   // console.log(asieto)
+   const guardar =()=>{
+      
+     //let arr= [...dataArr]
+    // if (datos) {
+      
+   //usedispatch(addasientos({key:key,asiento:[]})) 
+    // }
+      usedispatch(addasientos({key:key,asiento:[...verific,...selection]})) 
+     
+     
+
+  }
   return (
     <IonPage>
     <IonHeader className="ion-no-border" >
@@ -73,7 +122,7 @@ container.forEach(c=>{c.addEventListener('click', (e:any) => {
           <div className='row' key={i+1}>
           {val.map((e:any,index:number)=>
             
-             (e.letra==="f5"||e.letra==="f4")?<div key={index+1} className={`round ${e.letra} seat occupied ` }></div>:<div key={index+1} className={`round ${e.letra} seat  ` }></div>
+             <div key={index+1} id={e.letra} className={`round ${e.letra} seat ${e.estado}  ` }></div>
             )}
           </div>))
         }               
@@ -94,7 +143,7 @@ container.forEach(c=>{c.addEventListener('click', (e:any) => {
   </a>
   </div>
       <div className="grad" style={{paddingBottom:15}}>    
-      <IonButton style={{width:"70%",height:50}} onClick={handleClick}>Siguiente</IonButton>    
+      <IonButton style={{width:"70%",height:50}} onClick={guardar}>Siguiente</IonButton>    
    
       
       </div>
