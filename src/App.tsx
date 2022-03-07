@@ -130,6 +130,10 @@ return(
             <Route path="/home"  >
               <Tabs />
             </Route>
+            <Route exact path="/home">
+            <Redirect from='*' to="/" />
+          </Route>
+          
 
             
 
