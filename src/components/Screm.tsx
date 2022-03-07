@@ -19,7 +19,7 @@ const Scream: React.FC = () => {
    history.replace("/home/tab1")
   
 
-}, 9000);
+}, 7000);
       
   }
 

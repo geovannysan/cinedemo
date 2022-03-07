@@ -75,6 +75,7 @@ if (dato === undefined || dato === null)return true;
 
 
    const guardar =()=>{
+     if(!selection) return;
      setAnima(true);
       setTimeout(function(){
   setAnima(false)
