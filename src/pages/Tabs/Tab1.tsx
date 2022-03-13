@@ -13,7 +13,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import './Tab1.css';
 
-const width = window.innerWidth;
+const width =400;
 
 const SPACING = 10;
 const ITEM_SIZE = isPlatform("ios") ? width * 0.72 : width * 0.72;
@@ -80,7 +80,7 @@ const Tab1: React.FC = () => {
              <div className="SlidesContainer" >
                    <Swiper
                      className="AnimatedSlides"
-                     initialSlide={movies.length/2}
+                     initialSlide={movies.length/2}  
                      slidesPerView={1.25}
                      spaceBetween={30}
                      centeredSlides={true}

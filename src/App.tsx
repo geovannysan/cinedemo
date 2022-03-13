@@ -8,7 +8,7 @@ import {
   createAnimation, 
   isPlatform,
   IonToast,
-  setupIonicReact,
+  setupIonicReact,IonModal,IonContent,IonHeader,IonToolbar,IonTitle,
 } from '@ionic/react';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import {useDispatch,useSelector}from'react-redux';
@@ -97,6 +97,7 @@ const setStatusBarStyleLight = async () => {
 
 const App: React.FC = () =>{
 const valor:any= useSelector((state:any)=> state.toast)
+const[anima,setmodal]= useState<boolean>(true);
 
 const dispatch = useDispatch();
   
@@ -107,8 +108,16 @@ Network.addListener('networkStatusChange', status => {
 });
 
 
+ const guardar =()=>{
+     
+      setTimeout(function(){
+ 
+   setmodal(false);
 
-
+}, 9000);
+      
+  }
+guardar();
 
   if (isPlatform("android")) {  
   
@@ -126,12 +135,12 @@ return(
 
             <Route exact  path="/butacas" render={() => <Butaca  />} />
             <Route exact path="/Info" render={()=> <InfoPeli/>}/>
-            <Route exact path="/" render={()=><Screm/>}/>
+            
             <Route path="/home"  >
               <Tabs />
             </Route>
-            <Route exact path="/home">
-            <Redirect from='*' to="/" />
+            <Route exact path="/">
+            <Redirect from='*' to="/home" />
           </Route>
           
 
@@ -151,6 +160,21 @@ return(
         message={valor.toast.message}
         duration={600}
       />
+      <IonModal isOpen={anima} >
+       <IonContent className='my-custom-class'>
+        <IonHeader className="ion-no-border">
+            <IonToolbar>
+              <IonTitle></IonTitle>
+              
+            </IonToolbar>
+          </IonHeader>
+          
+            <div className="frames">           
+          <iframe className="imations" src="https://embed.lottiefiles.com/animation/64770"></iframe>
+         < div className="label"><h1 className="letra">Gocode</h1> </div>
+            </div>
+          </IonContent>
+      </IonModal>
 
   </IonApp>
 )};

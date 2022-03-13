@@ -12,18 +12,7 @@ import './ExploreContainer.css';
 
 const Scream: React.FC = () => {
   const history = useHistory();
-  const guardar =()=>{
-     
-      setTimeout(function(){
- 
-   history.replace("/home/tab1")
   
-
-}, 7000);
-      
-  }
-
- guardar();
 
 return (
   <IonPage>
@@ -37,7 +26,7 @@ return (
           
             <div className="frames">           
           <iframe className="imations" src="https://embed.lottiefiles.com/animation/64770"></iframe>
-         < div className="label"><h1 className="letra">Gocoding</h1> </div>
+         < div className="label"><h1 className="letra">Gocode</h1> </div>
             </div>
           </IonContent>
           </IonPage>

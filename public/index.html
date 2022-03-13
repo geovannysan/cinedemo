@@ -30,6 +30,25 @@
   position: absolute;
   background:transparent;
 }
+ .my-custom-class{
+    height: auto !important;
+    width: auto !important;
+  } 
+
+@media only screen and (min-width: 390px) {
+  /* For tablets: */
+  
+  #root {width: 100%;}
+}
+@media only screen and (max-width: 800px) {
+   #root {width: 50%;}
+}
+@media (min-width: 400px) {
+ion-app {
+width: 400px;
+margin: auto;
+
+}
   </style>
  
 
